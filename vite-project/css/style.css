@@ -172,7 +172,13 @@ body {
 
 .input-group {
   margin-bottom: 20px;
+  cursor: pointer;
 }
+
+.pointer {
+  cursor: pointer;
+}
+
 
 label {
   display: block;

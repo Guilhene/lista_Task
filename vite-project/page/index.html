@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8">
+    <title>Início | Gerenciador</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  </head>
+  <body>
+  <header class="sidebar">
+    <div class="logo-container">
+      <h2><i class="fa-solid fa-list-check"></i> Gerenciador</h2>
+    </div>
+
+    <nav>
+      <a href="index.html" class="active">
+        <i class="fa-solid fa-house"></i> Início
+      </a>
+      <a href="cadastro.html">
+        <i class="fa-solid fa-plus"></i> Cadastro
+      </a>
+      <a href="listagem.html">
+        <i class="fa-solid fa-table"></i> Listagem
+      </a>
+    </nav>
+  </header>
+
+  <main class="content">
+    <header class="page-header">
+      <p class="subtitle">Painel de Controle</p>
+      <h1>Gerenciador de Tarefas</h1>
+      <p class="welcome-text">Bem-vindo ao sistema</p>
+    </header>
+
+    <section class="dashboard-grid">
+      <header class="card chart-card">
+        <h3>Visão Geral do Projeto</h3>
+        <div class="chart-container">
+          <canvas id="graficoTarefas"></canvas>
+        </div>
+      </header>
+
+      <article class="stats-container">
+        <div class="card stat-card">
+          <span class="stat-number" id="total">0</span>
+          <span class="stat-label">Total</span>
+        </div>
+        <div class="card stat-card">
+          <span class="stat-number" id="concluidas">0</span>
+          <span class="stat-label">Concluídas</span>
+        </div>
+        <div class="card stat-card">
+          <span class="stat-number" id="pendentes">0</span>
+          <span class="stat-label">Pendentes</span>
+        </div>
+      </article>
+    </section>
+  </main>
+
+  <script src="../js/paige_home.js"></script>
+  </body>
+</html>
