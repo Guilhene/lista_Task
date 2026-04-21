@@ -1,0 +1,62 @@
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8">
+    <title>Cadastro | Gerenciador</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+  </head>
+  <body>
+
+  <header class="sidebar">
+    <div class="logo-container">
+      <h2><i class="fa-solid fa-list-check"></i> Gerenciador</h2>
+    </div>
+
+    <nav>
+      <a href="index.html">
+        <i class="fa-solid fa-house"></i> Início
+      </a>
+      <a href="cadastro.html" class="active">
+        <i class="fa-solid fa-plus"></i> Cadastro
+      </a>
+      <a href="listagem.html">
+        <i class="fa-solid fa-table"></i> Listagem
+      </a>
+    </nav>
+  </header>  
+
+  <main class="content">
+    <header class="page-header">
+      <h1>Cadastrar Nova Tarefa</h1>
+    </header>
+
+    <section class="form-container">
+      <form id="formTarefa">
+        <article class="input-group">
+          <label>Nome da Tarefa</label>
+          <input type="text" id="nome" placeholder="Digite o nome da tarefa">
+        </article>
+
+        <article class="input-group">
+          <label>Selecione a Data (dd/mm/aaaa)</label>
+          <input type="date" id="data" class="pointer">
+        </article>
+
+        <article class="input-group">
+          <label>Selecione o Status</label>
+          <select id="status" class="pointer">
+            <option value="Pendente">Pendente</option>
+            <option value="Concluído">Concluído</option>
+          </select>
+        </article>
+
+        <button type="submit" class="btn-primary">Salvar Tarefa</button>
+      </form>
+      <p id="erro"></p>
+    </section>
+  </main>
+
+  <script src="../js/cadastro.js"></script>
+
+  </body>
+</html>

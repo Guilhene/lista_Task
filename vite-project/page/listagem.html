@@ -1,0 +1,47 @@
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8">
+    <title>Listagem | Gerenciador</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+  </head>
+  <body>
+
+  <header class="sidebar">
+    <div class="logo-container">
+      <h2><i class="fa-solid fa-list-check"></i> Gerenciador</h2>
+    </div>
+
+    <nav>
+      <a href="index.html">
+        <i class="fa-solid fa-house"></i> Início
+      </a>
+      <a href="cadastro.html">
+        <i class="fa-solid fa-plus"></i> Cadastro
+      </a>
+      <a href="listagem.html" class="active">
+        <i class="fa-solid fa-table"></i> Listagem
+      </a>
+    </nav>
+  </header>
+
+  <main class="content">
+    <header class="page-header flex-header">
+      <h1>Lista de Tarefas</h1>
+      <section class="filter-group">
+        <label>Filtrar por Status:</label>
+        <select id="filtro">
+          <option value="Todas">Todas</option>
+          <option value="Pendente">Pendentes</option>
+          <option value="Concluído">Concluídas</option>
+        </select>
+      </section>
+    </header>
+
+    <section id="lista" class="task-grid"></section>
+  </main>
+
+  <script src="../js/listagem.js"></script>
+
+  </body>
+</html>
