@@ -3,6 +3,7 @@
     <meta charset="UTF-8">
     <title>Cadastro | Gerenciador</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/style.css">
   </head>
   <body>
@@ -26,6 +27,9 @@
   </header>  
 
   <main class="content">
+    <button id="menuBtn" class="menu-btn">
+      <i class="fa-solid fa-bars"></i>
+    </button> 
     <header class="page-header">
       <h1>Cadastrar Nova Tarefa</h1>
     </header>
@@ -33,21 +37,13 @@
     <section class="form-container">
       <form id="formTarefa">
         <article class="input-group">
-          <label>Nome da Tarefa</label>
+          <label>*Nome da Tarefa</label>
           <input type="text" id="nome" placeholder="Digite o nome da tarefa">
         </article>
 
         <article class="input-group">
-          <label>Selecione a Data (dd/mm/aaaa)</label>
+          <label>*Selecione a Data (dd/mm/aaaa)</label>
           <input type="date" id="data" class="pointer">
-        </article>
-
-        <article class="input-group">
-          <label>Selecione o Status</label>
-          <select id="status" class="pointer">
-            <option value="Pendente">Pendente</option>
-            <option value="Concluído">Concluído</option>
-          </select>
         </article>
 
         <button type="submit" class="btn-primary">Salvar Tarefa</button>

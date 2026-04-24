@@ -1,3 +1,10 @@
+const menuBtn = document.getElementById("menuBtn");
+const sidebar = document.querySelector(".sidebar");
+
+menuBtn.addEventListener("click", () => {
+  sidebar.classList.toggle("open");
+});
+
 let tarefas = JSON.parse(localStorage.getItem("tarefas")) || [];
 
 let total = tarefas.length;
