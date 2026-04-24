@@ -326,24 +326,75 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   background: rgba(239, 68, 68, 0.1);
 }
 
+.menu-btn {
+  display: none;
+  top: 15px;
+  left: 15px;
+  background: #22252d;
+  border: 1px solid #2c303a;
+  color: #e5e7eb;
+  padding: 10px 12px;
+  border-radius: 10px;
+  font-size: 1.2rem;
+  z-index: 1100;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.menu-btn:hover {
+  background: #2c303a;
+  transform: scale(1.05);
+}
+
+.menu-btn:active {
+  transform: scale(0.95);
+}
+
+#erro {
+  margin-top: 10px;
+  font-size: 0.9rem;
+  color: #ef4444;
+}
+
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(10px); }
   to { opacity: 1; transform: translateY(0); }
 }
 
+
 /* RESPONSIVO */
 @media (max-width: 768px) {
-  .sidebar {
-    display: none;
+
+  .menu-btn {
+    display: block;
   }
+
+  /* SIDEBAR escondida */
+  .sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    transform: translateX(-100%); 
+    width: 260px;
+    height: 100vh;
+    transition: transform 0.3s ease;
+    z-index: 1000;
+  }
+
+  .sidebar.open {
+    transform: translateX(0); 
+  }
+
   .content {
     margin-left: 0;
     width: 100%;
     padding: 20px;
   }
+
   .stats-container {
     flex-direction: column;
   }
+
   .flex-header {
     flex-direction: column;
     align-items: flex-start;
