@@ -1,11 +1,4 @@
 {
-  "tarefas": [
-    {
-      "nome": "s",
-      "data": "2026-06-19",
-      "status": "Concluído",
-      "id": "e9BSZJW7704"
-    }
-  ],
+  "tarefas": [],
   "$schema": "./node_modules/json-server/schema.json"
 }
