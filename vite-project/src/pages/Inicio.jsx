@@ -18,7 +18,7 @@ function Inicio() {
       <header className="page-header">
         <p className="subtitle">Painel de Controle</p>
         <h1>Gerenciador de Tarefas</h1>
-        <p className="welcome-text">Bem-vindo ao sistema</p>
+        <p className="welcome-text">Bem-vindo(a)</p>
       </header>
       <div className="dashboard-grid">
         <div className="stats-container">

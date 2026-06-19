@@ -51,7 +51,7 @@ function Cadastro() {
             <select value={status} onChange={(e) => setStatus(e.target.value)}>
               <option value="">Selecione</option>
               <option value="Pendente">Pendente</option>
-              <option value="Concluido">Concluido</option>
+              <option value="Concluído">Concluído</option>
             </select>
           </div>
           <button type="submit" className="btn-primary">Salvar Tarefa</button>
