@@ -9,17 +9,29 @@ body {
   min-height: 100vh;
 }
 
-/* SIDEBAR */
+/* SIDEBAR E MENU RETRÁTIL */
 .sidebar {
-  width: 260px;
   background: #111318;
-  padding: 30px 20px;
+  padding: 30px 15px;
   position: fixed;
   height: 100vh;
   box-sizing: border-box;
   border-right: 1px solid #22252d;
   display: flex;
   flex-direction: column;
+  transition: width 0.3s ease;
+  z-index: 100;
+  overflow: hidden;
+  left: 0;
+  top: 0;
+}
+
+.sidebar.fechado {
+  width: 80px;
+}
+
+.sidebar.aberto {
+  width: 260px;
 }
 
 .logo-container h2 {
@@ -29,11 +41,19 @@ body {
   margin-bottom: 40px;
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 20px;
 }
 
 .logo-container h2 i {
   color: #5c7c73;
+  font-size: 1.4rem;
+  min-width: 25px;
+  text-align: center;
+  transition: color 0.2s;
+}
+
+.logo-container h2 i:hover {
+  color: #ffffff;
 }
 
 .sidebar nav {
@@ -45,18 +65,21 @@ body {
 .sidebar a {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 20px;
   color: #8b92a5;
   text-decoration: none;
-  padding: 12px 16px;
+  padding: 12px;
   border-radius: 8px;
   font-weight: 500;
   font-size: 0.95rem;
   transition: all 0.2s ease;
+  white-space: nowrap;
 }
 
 .sidebar a i {
-  font-size: 1.1rem;
+  font-size: 1.2rem;
+  min-width: 25px;
+  text-align: center;
 }
 
 .sidebar a:hover, .sidebar a.active {
@@ -64,12 +87,39 @@ body {
   color: #ffffff;
 }
 
-/* CONTEÚDO */
+.sidebar.fechado .logo-text,
+.sidebar.fechado .link-text {
+  opacity: 0;
+  display: none;
+}
+
+.sidebar.aberto .logo-text,
+.sidebar.aberto .link-text {
+  opacity: 1;
+  display: inline;
+  animation: fadeInText 0.3s ease-in;
+}
+
+@keyframes fadeInText {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* CONTEÚDO PRINCIPAL */
 .content {
-  margin-left: 260px;
   padding: 50px;
-  width: calc(100% - 260px);
   box-sizing: border-box;
+  transition: margin-left 0.3s ease, width 0.3s ease;
+}
+
+.conteudo-expandido {
+  margin-left: 80px;
+  width: calc(100% - 80px);
+}
+
+.conteudo-recolhido {
+  margin-left: 260px;
+  width: calc(100% - 260px);
 }
 
 .page-header {
@@ -179,7 +229,6 @@ body {
   cursor: pointer;
 }
 
-
 label {
   display: block;
   margin-bottom: 8px;
@@ -227,6 +276,12 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 
 .btn-primary:hover {
   background: #4a655d;
+}
+
+#erro {
+  margin-top: 10px;
+  font-size: 0.9rem;
+  color: #ef4444;
 }
 
 /* LISTAGEM DE TAREFAS */
@@ -326,78 +381,63 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   background: rgba(239, 68, 68, 0.1);
 }
 
-.menu-btn {
-  display: none;
-  top: 15px;
-  left: 15px;
-  background: #22252d;
-  border: 1px solid #2c303a;
-  color: #e5e7eb;
-  padding: 10px 12px;
-  border-radius: 10px;
-  font-size: 1.2rem;
-  z-index: 1100;
-  cursor: pointer;
-  transition: all 0.2s ease;
-}
-
-.menu-btn:hover {
-  background: #2c303a;
-  transform: scale(1.05);
-}
-
-.menu-btn:active {
-  transform: scale(0.95);
-}
-
-#erro {
-  margin-top: 10px;
-  font-size: 0.9rem;
-  color: #ef4444;
-}
-
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(10px); }
   to { opacity: 1; transform: translateY(0); }
 }
 
-
-/* RESPONSIVO */
+/* =========================================
+   RESPONSIVIDADE (SMARTPHONES E TABLETS)
+   ========================================= */
 @media (max-width: 768px) {
-
-  .menu-btn {
-    display: block;
-  }
-
-  /* SIDEBAR escondida */
   .sidebar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    transform: translateX(-100%); 
-    width: 260px;
-    height: 100vh;
-    transition: transform 0.3s ease;
     z-index: 1000;
   }
+  
+  .sidebar.fechado {
+    width: 70px;
+    padding: 30px 10px;
+  }
 
-  .sidebar.open {
-    transform: translateX(0); 
+  .sidebar.aberto {
+    width: 260px;
+  }
+
+  .logo-container h2 {
+    gap: 15px;
+    margin-bottom: 30px;
   }
 
   .content {
-    margin-left: 0;
-    width: 100%;
     padding: 20px;
+  }
+
+  /* No mobile, o conteúdo não é espremido. O menu apenas sobrepõe a tela */
+  .conteudo-expandido, .conteudo-recolhido {
+    margin-left: 70px;
+    width: calc(100% - 70px);
   }
 
   .stats-container {
     flex-direction: column;
+    gap: 15px;
   }
 
   .flex-header {
     flex-direction: column;
     align-items: flex-start;
     gap: 15px;
+  }
+
+  .filter-group select {
+    width: 100%; 
+  }
+
+  .task-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .form-container {
+    max-width: 100%;
   }
 }
